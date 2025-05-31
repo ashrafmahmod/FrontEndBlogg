@@ -9,7 +9,7 @@ const CreatePost = () => {
   const dispatch = useDispatch();
   const { loading, isPostCreated } = useSelector((state) => state.post);
   const { categories } = useSelector((state) => state.category);
-  console.log(categories);
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");

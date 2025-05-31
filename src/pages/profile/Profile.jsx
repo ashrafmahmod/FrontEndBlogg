@@ -23,9 +23,8 @@ const Profile = () => {
     (state) => state.profile
   );
   const { user } = useSelector((state) => state.auth);
-  const state = useSelector((state) => state);
+
   // const state = useSelector((state) => state);
-  console.log(state);
 
   useEffect(() => {
     dispatch(getUserProfile(id));

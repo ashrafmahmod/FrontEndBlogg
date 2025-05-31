@@ -10,7 +10,7 @@ import {
 const CommentsTable = () => {
   const dispatch = useDispatch();
   const { comments } = useSelector((state) => state.comment);
-  console.log(comments);
+
   useEffect(() => {
     dispatch(fetchAllComments());
   }, []);
