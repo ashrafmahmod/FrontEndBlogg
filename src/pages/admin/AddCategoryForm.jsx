@@ -1,0 +1,40 @@
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { createCategory } from "../../redux/apiCalls/categoryApiCall";
+const AddCategoryForm = () => {
+  const dispatch = useDispatch();
+
+  const [title, setTitle] = useState("");
+
+  // form submit handler
+
+  const formSybmitHandler = (e) => {
+    e.preventDefault();
+    if (title.trim() === "") return toast.error("category title is required");
+    dispatch(createCategory({ title }));
+    setTitle("");
+  };
+  return (
+    <div className="add-category">
+      <h6 className="add-category-title">Add New Category</h6>
+      <form onSubmit={formSybmitHandler}>
+        <div className="add-category-form-group">
+          <label htmlFor="title">Category Title</label>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            id="title"
+            placeholder="Enter Category Title"
+          />
+          <button type="submit" className="add-category-btn">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddCategoryForm;
